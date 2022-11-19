@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>All ADS</title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <nav class="navbar navbar-expand-lg bg-light py-3">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'Welcome' %}">Openland</a>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'Welcome' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'Register' %}">Post your land</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'Listings' %}">View listings</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search" method="GET" action="{% url 'Search' %}">
+            <input class="form-control me-2" type="search" name="s" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+<center><h1>Listings</h1></center>
+<div class="table-responsive">
+  <table class="table align-middle table-bordered table-striped">
+    <thead>
+      <tr class="table-info">
+        <td class="align-top">ID</td>
+        <td class="align-top">OWNER NAME</td>
+        <td class="align-top">PRICE</td>
+        <td class="align-top">LOCATION</td>
+        <td class="align-top">ABOUT THE LAND</td>
+        <td class="align-top">PHONE NUMBER</td>
+        <td class="align-top">ZIP CODE</td>
+        <td class="align-top">DISTRICT</td>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+      {% for obj in obj %}
+      <td>{{ obj.id }}</td>
+      <td>{{ obj.owner }}</td>
+      <td>{{ obj.price }}</td>
+      <td>{{ obj.address }}</td>
+      <td>{{ obj.about }}</td>
+      <td>{{ obj.phone_no }}</td>
+      <td>{{ obj.zip }}</td>
+      <td>{{ obj.district }}</td>
+    </tr>
+     {% endfor %}
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
