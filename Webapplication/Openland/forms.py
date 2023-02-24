@@ -20,9 +20,19 @@ class RegisterrForm(forms.ModelForm):
 class LoginForm(forms.ModelForm):
     class Meta:
         model = Login
-        fields = ['username', 'password', 'cpass']
+        fields = ['username', 'password']
 
         widgets = {'username': forms.TextInput(attrs={'class': 'form-control'}),
-                   'password': forms.TextInput(attrs={'class': 'form-control'}),
-                   'cpass': forms.TextInput(attrs={'class': 'form-control'})
+                   'password': forms.PasswordInput(attrs={'class': 'form-control'}),
+                   }
+
+
+class NewusrForm(forms.ModelForm):
+    class Meta:
+        model = Login
+        fields = '__all__'
+
+        widgets = {'uname': forms.TextInput(attrs={'class': 'form-control'}),
+                   'pass': forms.PasswordInput(attrs={'class': 'form-control'}),
+                   'conpass': forms.PasswordInput(attrs={'class': 'form-control'})
                    }

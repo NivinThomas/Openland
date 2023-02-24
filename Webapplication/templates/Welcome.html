@@ -6,25 +6,80 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Welcome to Openland</title>
 </head>
+<div class="bg">
 <body>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+.bg {
+  background-image: url("https://img.freepik.com/free-photo/beautiful-tree-middle-field-covered-with-grass-with-tree-line-background_181624-29267.jpg?w=1800&t=st=1669051306~exp=1669051906~hmac=bde6c9c0371a8e522aa326b4748ab33b6fcd6a0b56283dbc61036280b88685d2");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#nav{
+ opacity: 65%;
+ filter:(opacity=50);
+ }
+#btns{
+ height: 70%;
+ width: 100%;
+ font-size: 40px;
+}
+#link{
+color: black;
+font-size: 25px;
+font-weight: bold;
+}
+.txt{
+  color: white;
+  padding-top: 10px;
+  font-family: 'Times New Roman', serif;
+  font-weight: bold;
+}
+#p{
+  padding-top:50px;
+  text-align:center;
+  color: white;
+  font-family: 'Times New Roman', serif;
+  font-size:20px;
+
+}
+</style>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <nav class="navbar navbar-expand-lg bg-light py-3">
+    <nav class="navbar navbar-expand-lg bg-light py-3" id="nav">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'Welcome' %}">Openland</a>
+        <a class="navbar-brand" href="{% url 'Welcome' %}" id="link">Openland</a>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'Welcome' %}">Home</a>
+              <a class="nav-link disabled" aria-current="page" href="{% url 'Welcome' %}">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="{% url 'Register' %}">Post your land</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="{% url 'Listings' %}">View listings</a>
-            </li>
+          <!--  <li class="nav-item">
+              <a class="nav-link disabled" href="{% url 'Listings' %}">View listings</a>
+            </li>-->
           </ul>
         </div>
-      </div>
     </nav>
-<center><h1>Welcome to Openland</h1></center>
+&nbsp;
+<div class="txt">
+        <h1 style="text-align:center;">Welcome to Openland</h1>
+</div>
+<p id="p"> Welcome to open land where you can list your lands for sale <br> Please choose an option to continue</p>
+<div class="position-relative" id="btns">
+      <div class="position-absolute top-50 start-50 translate-middle">
+          <form class="d-flex" role="search" method="GET" action="{% url 'Login' %}">
+            <!--<button class="btn btn-outline-primary btn-lg" type="submit" >Login</button>-->
+              &nbsp;&nbsp;&nbsp;
+            <button class="btn btn-outline-info btn-lg" type="submit" formaction="{% url 'Register' %}">Post your land</button>&nbsp;&nbsp;&nbsp;
+          </form>
+      </div>
+    </div>
 </body>
+</div>
 </html>

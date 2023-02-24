@@ -18,7 +18,13 @@ class Registration(models.Model):
 class Login(models.Model):
     username = models.CharField('User name', max_length=20, null=False)
     password = models.CharField('Password', max_length=20, null=False)
-    cpass = models.CharField('Confirm password', max_length=20, null=False)
+
+    def __str__(self):
+        return self.username
+class New(models.Model):
+    username = models.CharField('User name', max_length=20, null=False)
+    password = models.CharField('Password', max_length=20, null=False)
+    conpass = models.CharField('Confirm password', max_length=20, null=False)
 
     def __str__(self):
         return self.username
